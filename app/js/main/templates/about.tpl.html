@@ -1,1 +1,11 @@
-<p>This is about</p>
+<table class="table">
+    <tr>
+        <th>Poster</th>
+        <th>Titel</th>
+
+    </tr>
+    <tr ng-repeat="movie in response">
+        <td><img style="height : 100px" src="{{movie.poster}}" alt="Description"/></td>
+        <td>{{movie.show_title}}</td>
+    </tr>
+</table>
