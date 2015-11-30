@@ -1,11 +1,25 @@
-<table class="table">
+<form role="form" ng-submit="submit()">
+    <div class="form-group">
+        <label for="genres">Select genre:</label>
+        <select class="form-control" ng-model="chosenGenre" id="genres">
+            <option value="">--All--</option>
+            <option ng-repeat="genre in genres" value="{{genre.id}}">{{genre.name}}</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-default">Filter movies</button>
+
+</form>
+
+<table class="table" ng-hide="filteredMovies.length === 0">
     <tr>
         <th>Poster</th>
         <th>Titel</th>
 
     </tr>
-    <tr ng-repeat="movie in response">
-        <td><img style="height : 100px" src="{{movie.poster}}" alt="Description"/></td>
-        <td>{{movie.show_title}}</td>
+    <tr ng-repeat="movie in filteredMovies">
+        <td><img src="{{baseUrl}}w92{{movie.poster_path}}" alt="Description"/></td>
+        <td>{{movie.original_title}}</td>
     </tr>
 </table>
+

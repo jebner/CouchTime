@@ -4,8 +4,14 @@
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav ">
-                        <li ng-repeat="item in items" class="navbar-item" ui-sref-active="navbar-active">
-                            <a ui-sref="app.{{ item | lowercase }}" class="nav-entry">{{ item }} </a>
+                        <li class="navbar-item" ui-sref-active="navbar-active">
+                            <a ui-sref="app.home" class="nav-entry">Find series </a>
+                        </li>
+                        <li class="navbar-item" ui-sref-active="navbar-active">
+                            <a ui-sref="app.about" class="nav-entry"> Find movie </a>
+                        </li>
+                        <li class="navbar-item" ui-sref-active="navbar-active">
+                            <a ui-sref="app.contact" class="nav-entry">Contact </a>
                         </li>
                     </ul>
                     <img src="img/COUCH.svg" class='logo'>

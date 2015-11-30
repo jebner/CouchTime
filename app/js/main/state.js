@@ -3,12 +3,12 @@ app.config(['$stateProvider', function ($stateProvider) {
 
     $stateProvider
         .state('app.home', {
-            url: '/home',
+            url: '/series',
             templateUrl: 'js/main/templates/home.tpl.html',
             controller: 'HomeCtrl'
         })
         .state('app.about', {
-            url: '/about',
+            url: '/movies',
             templateUrl: 'js/main/templates/about.tpl.html',
             controller: 'AboutCtrl'
         })
