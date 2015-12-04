@@ -28,4 +28,44 @@ app.controller('HomeCtrl', ['$scope', '$http', function ($scope, $http) {
             $scope.filteredSeries = response.results;
         });
     };
+
+
+    $scope.showVisualization = function() {
+        nv.addGraph(function() {
+            var chart = nv.models.discreteBarChart()
+                .x(function(d) { return d.label })    //Specify the data accessors.
+                .y(function(d) { return d.value })
+                .staggerLabels(true)    //Too many bars and not enough room? Try staggering labels.
+                .tooltips(false)        //Don't show tooltips
+                .showValues(true)       //...instead, show the bar value right on top of each bar.
+                ;
+
+            d3.select('#chart svg')
+                .datum(exampleData())
+                .call(chart);
+
+            nv.utils.windowResize(chart.update);
+
+            return chart;
+        });
+    }
+
+
+    function exampleData() {
+        $scope.visualizeData = [{
+            key: "Cumulative Return",
+            values: []
+        }];
+
+        for (var i = 0; i < $scope.filteredSeries.length; i++) {
+            var tempObj = {
+                "label": $scope.filteredSeries[i].original_name,
+                "value": $scope.filteredSeries[i].vote_average
+            }
+            $scope.visualizeData[0].values.push(tempObj)
+        }
+
+        return $scope.visualizeData;
+    }
+
 }]);
