@@ -23,11 +23,13 @@
     <tr>
         <th>Poster</th>
         <th>Titel</th>
+        <th>Description</th>
 
     </tr>
     <tr ng-repeat="movie in filteredMovies">
         <td><img src="{{baseUrl}}w92{{movie.poster_path}}" alt="Description"/></td>
         <td>{{movie.original_title}}</td>
+        <td>{{movie.overview}}</td>
     </tr>
 </table>
 
