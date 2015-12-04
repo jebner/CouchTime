@@ -13,7 +13,7 @@ app.config(['$stateProvider', function ($stateProvider) {
             controller: 'AboutCtrl'
         })
         .state('app.contact', {
-            url: '/contact',
+            url: '/about',
             templateUrl: 'js/main/templates/contact.tpl.html',
             controller: 'ContactCtrl'
         });
