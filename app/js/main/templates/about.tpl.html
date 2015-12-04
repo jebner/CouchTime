@@ -11,6 +11,17 @@
 
 </form>
 
+<button type="button" class="btn btn-default" ng-click="showVisualization()">Visualize</button>
+
+
+<div ng-show="visualizationMode">
+    Test
+</div>
+
+<div id="chart">
+    <svg></svg>
+</div>
+
 <table class="table" ng-hide="filteredMovies.length === 0">
     <tr>
         <th>Poster</th>
