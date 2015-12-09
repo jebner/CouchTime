@@ -2,15 +2,15 @@
 app.config(['$stateProvider', function ($stateProvider) {
 
     $stateProvider
-        .state('app.home', {
+        .state('app.series', {
             url: '/series',
-            templateUrl: 'js/main/templates/home.tpl.html',
-            controller: 'HomeCtrl'
+            templateUrl: 'js/main/templates/series.tpl.html',
+            controller: 'SeriesCtrl'
         })
-        .state('app.about', {
+        .state('app.movies', {
             url: '/movies',
-            templateUrl: 'js/main/templates/about.tpl.html',
-            controller: 'AboutCtrl'
+            templateUrl: 'js/main/templates/movies.tpl.html',
+            controller: 'MoviesCtrl'
         })
         .state('app.contact', {
             url: '/about',

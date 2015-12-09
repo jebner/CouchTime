@@ -1,4 +1,4 @@
-app.controller('AboutCtrl', ['$scope', '$http', function($scope, $http) {
+app.controller('MoviesCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.chosenGenre = "";
 
     $scope.filteredMovies = [];
@@ -19,17 +19,18 @@ app.controller('AboutCtrl', ['$scope', '$http', function($scope, $http) {
         var link = "http://api.themoviedb.org/3/discover/movie?api_key=a9ccf68648c880df3d21b94b1c803110&with_genres=" + $scope.chosenGenre;
         $http.get(link).success(function (response) {
             $scope.filteredMovies = response.results;
+            $scope.showVisualization();
         });
     };
 
     $scope.showVisualization = function() {
         nv.addGraph(function() {
             var chart = nv.models.discreteBarChart()
-                .x(function(d) { return d.label })    //Specify the data accessors.
+                .x(function(d) { return d.label })
                 .y(function(d) { return d.value })
-                .staggerLabels(true)    //Too many bars and not enough room? Try staggering labels.
-                .tooltips(true)        //Don't show tooltips
-                .showValues(true)//...instead, show the bar value right on top of each bar.
+                .staggerLabels(true)
+                .tooltips(true)
+                .showValues(true)
                 .showXAxis(false)
                 ;
 

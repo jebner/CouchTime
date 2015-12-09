@@ -1,4 +1,4 @@
 app.controller('NavbarCtrl', function ($scope, $http) {
-    $scope.items = ['Home', 'Find movie', 'Contact'];
+    $scope.items = ['Find series', 'Find movie', 'Contact'];
 });
 

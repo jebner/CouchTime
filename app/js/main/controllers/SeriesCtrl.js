@@ -1,4 +1,4 @@
-app.controller('HomeCtrl', ['$scope', '$http', function ($scope, $http) {
+app.controller('SeriesCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.chosenGenre = "";
 
     $scope.filteredSeries = [];
@@ -19,16 +19,9 @@ app.controller('HomeCtrl', ['$scope', '$http', function ($scope, $http) {
         var link = "http://api.themoviedb.org/3/discover/tv?api_key=a9ccf68648c880df3d21b94b1c803110&with_genres=" + $scope.chosenGenre + "&page=1";
         $http.get(link).success(function (response) {
             $scope.filteredSeries = response.results;
+            $scope.showVisualization();
         });
     };
-
-    $scope.pageChanged = function () {
-        var link = "http://api.themoviedb.org/3/discover/tv?api_key=a9ccf68648c880df3d21b94b1c803110&with_genres=" + $scope.chosenGenre + "&page=" + $scope.currentPage;
-        $http.get(link).success(function (response) {
-            $scope.filteredSeries = response.results;
-        });
-    };
-
 
     $scope.showVisualization = function() {
         nv.addGraph(function() {
