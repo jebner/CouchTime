@@ -16,11 +16,20 @@ app.controller('MoviesCtrl', ['$scope', '$http', function($scope, $http) {
 
 
     $scope.submit = function() {
-        var link = "http://api.themoviedb.org/3/discover/movie?api_key=a9ccf68648c880df3d21b94b1c803110&with_genres=" + $scope.chosenGenre;
-        $http.get(link).success(function (response) {
-            $scope.filteredMovies = response.results;
-            $scope.showVisualization();
-        });
+        if ($scope.chosenGenre === "") {
+            var link = "http://api.themoviedb.org/3/discover/movie?api_key=a9ccf68648c880df3d21b94b1c803110";
+            $http.get(link).success(function (response) {
+                $scope.filteredMovies = response.results;
+                $scope.showVisualization();
+            });
+        } else {
+            var link = "http://api.themoviedb.org/3/discover/movie?api_key=a9ccf68648c880df3d21b94b1c803110&with_genres=" + $scope.chosenGenre;
+            $http.get(link).success(function (response) {
+                $scope.filteredMovies = response.results;
+                $scope.showVisualization();
+            });
+        }
+
     };
 
     $scope.showVisualization = function() {
@@ -30,7 +39,7 @@ app.controller('MoviesCtrl', ['$scope', '$http', function($scope, $http) {
                 .y(function(d) { return d.value })
                 .staggerLabels(true)
                 .tooltips(true)
-                .showValues(true)
+                .showValues(false)
                 .showXAxis(false)
                 ;
 

@@ -16,7 +16,7 @@ app.controller('SeriesCtrl', ['$scope', '$http', function ($scope, $http) {
     });
 
     $scope.submit = function () {
-        var link = "http://api.themoviedb.org/3/discover/tv?api_key=a9ccf68648c880df3d21b94b1c803110&with_genres=" + $scope.chosenGenre + "&page=1";
+        var link = "http://api.themoviedb.org/3/discover/tv?api_key=a9ccf68648c880df3d21b94b1c803110&with_genres=" + $scope.chosenGenre;
         $http.get(link).success(function (response) {
             $scope.filteredSeries = response.results;
             $scope.showVisualization();
@@ -30,7 +30,7 @@ app.controller('SeriesCtrl', ['$scope', '$http', function ($scope, $http) {
                 .y(function(d) { return d.value })
                 .staggerLabels(true)    //Too many bars and not enough room? Try staggering labels.
                 .tooltips(true)        //Don't show tooltips
-                .showValues(true)       //...instead, show the bar value right on top of each bar.
+                .showValues(false)       //...instead, show the bar value right on top of each bar.
                 .showXAxis(false)
                 ;
 
